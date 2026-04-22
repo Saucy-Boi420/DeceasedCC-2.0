@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": { "type": "forge:mod_loaded", "modid": "create" }
+    }
+  ],
+  "pattern": [
+    "GBG",
+    "DOD",
+    "III"
+  ],
+  "key": {
+    "G": { "item": "minecraft:gold_ingot" },
+    "B": { "item": "minecraft:redstone_block" },
+    "D": { "item": "minecraft:diamond" },
+    "O": { "item": "minecraft:ender_pearl" },
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": {
+    "item": "deceasedcc:advanced_network_controller"
+  }
+}

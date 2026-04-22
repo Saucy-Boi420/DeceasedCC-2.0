@@ -1,0 +1,19 @@
+{
+  "__comment": "12-variant blockstate. Projector is rotationally symmetric around its emitter axis so horizontal facing only matters for WALL mounts. FLOOR/CEILING still carry a facing value for consistency with CameraBlock.",
+  "variants": {
+    "face=floor,facing=north":   { "model": "deceasedcc:block/hologram_projector" },
+    "face=floor,facing=south":   { "model": "deceasedcc:block/hologram_projector" },
+    "face=floor,facing=east":    { "model": "deceasedcc:block/hologram_projector" },
+    "face=floor,facing=west":    { "model": "deceasedcc:block/hologram_projector" },
+
+    "face=ceiling,facing=north": { "model": "deceasedcc:block/hologram_projector", "x": 180 },
+    "face=ceiling,facing=south": { "model": "deceasedcc:block/hologram_projector", "x": 180 },
+    "face=ceiling,facing=east":  { "model": "deceasedcc:block/hologram_projector", "x": 180 },
+    "face=ceiling,facing=west":  { "model": "deceasedcc:block/hologram_projector", "x": 180 },
+
+    "face=wall,facing=north":    { "model": "deceasedcc:block/hologram_projector", "x": 270 },
+    "face=wall,facing=south":    { "model": "deceasedcc:block/hologram_projector", "x": 90 },
+    "face=wall,facing=east":     { "model": "deceasedcc:block/hologram_projector", "x": 90, "y": 270 },
+    "face=wall,facing=west":     { "model": "deceasedcc:block/hologram_projector", "x": 90, "y": 90 }
+  }
+}

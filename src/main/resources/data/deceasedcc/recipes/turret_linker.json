@@ -1,0 +1,69 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:plates/iron"
+  },
+  "transitionalItem": {
+    "item": "deceasedcc:wip_turret_linker"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "item": "deceasedcc:turret_linker",
+      "chance": 100.0
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_linker"
+        },
+        {
+          "item": "minecraft:redstone"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_linker"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_linker"
+        },
+        {
+          "tag": "forge:plates/copper"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_linker"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_linker"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_linker"
+        }
+      ]
+    }
+  ]
+}

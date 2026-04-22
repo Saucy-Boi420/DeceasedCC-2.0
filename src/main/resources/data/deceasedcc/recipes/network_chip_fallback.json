@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": { "type": "forge:mod_loaded", "modid": "create" }
+    }
+  ],
+  "pattern": [
+    " I ",
+    "RGR",
+    " I "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "R": { "item": "minecraft:redstone" },
+    "G": { "item": "minecraft:gold_ingot" }
+  },
+  "result": {
+    "item": "deceasedcc:network_chip",
+    "count": 2
+  }
+}

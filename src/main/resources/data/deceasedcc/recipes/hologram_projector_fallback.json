@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": { "type": "forge:mod_loaded", "modid": "create" }
+    }
+  ],
+  "pattern": [
+    "GLG",
+    "DCD",
+    "III"
+  ],
+  "key": {
+    "G": { "item": "minecraft:glass_pane" },
+    "L": { "item": "minecraft:redstone_lamp" },
+    "D": { "item": "minecraft:diamond" },
+    "C": { "item": "minecraft:compass" },
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": {
+    "item": "deceasedcc:hologram_projector"
+  }
+}

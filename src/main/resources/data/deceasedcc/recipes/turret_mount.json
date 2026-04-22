@@ -1,0 +1,117 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredient": {
+    "item": "deceasedcc:basic_turret"
+  },
+  "transitionalItem": {
+    "item": "deceasedcc:wip_turret_mount"
+  },
+  "loops": 5,
+  "results": [
+    {
+      "item": "deceasedcc:turret_mount",
+      "chance": 100.0
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        },
+        {
+          "tag": "forge:plates/steel"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        },
+        {
+          "tag": "forge:plates/gold"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        },
+        {
+          "item": "immersiveengineering:component_electronic"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        },
+        {
+          "item": "create:precision_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        },
+        {
+          "tag": "forge:plates/brass"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_mount"
+        }
+      ]
+    }
+  ]
+}

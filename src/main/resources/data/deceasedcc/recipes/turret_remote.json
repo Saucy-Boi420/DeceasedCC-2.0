@@ -1,0 +1,55 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    { "type": "forge:mod_loaded", "modid": "create" },
+    { "type": "forge:mod_loaded", "modid": "immersiveengineering" },
+    { "type": "forge:mod_loaded", "modid": "securitycraft" }
+  ],
+  "ingredient": { "item": "securitycraft:camera_monitor" },
+  "transitionalItem": { "item": "deceasedcc:wip_turret_remote" },
+  "loops": 4,
+  "results": [
+    { "item": "deceasedcc:turret_remote", "chance": 100.0 }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_turret_remote" },
+        { "item": "minecraft:netherite_scrap" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_turret_remote" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_turret_remote" },
+        { "item": "immersiveengineering:ingot_steel" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_turret_remote" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_turret_remote" },
+        { "item": "immersiveengineering:component_electronic" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_turret_remote" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_turret_remote" },
+        { "item": "minecraft:ender_pearl" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_turret_remote" } ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        { "item": "deceasedcc:wip_turret_remote" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_turret_remote" } ]
+    }
+  ]
+}

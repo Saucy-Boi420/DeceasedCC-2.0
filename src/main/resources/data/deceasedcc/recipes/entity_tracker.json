@@ -1,0 +1,73 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    { "type": "forge:mod_loaded", "modid": "create" },
+    { "type": "forge:mod_loaded", "modid": "immersiveengineering" },
+    { "type": "forge:mod_loaded", "modid": "advancedperipherals" }
+  ],
+  "ingredient": {
+    "item": "deceasedcc:camera"
+  },
+  "transitionalItem": {
+    "item": "deceasedcc:wip_entity_tracker"
+  },
+  "loops": 5,
+  "results": [
+    { "item": "deceasedcc:entity_tracker", "chance": 100.0 }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_entity_tracker" },
+        { "item": "minecraft:spyglass" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_entity_tracker" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_entity_tracker" },
+        { "tag": "forge:plates/brass" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_entity_tracker" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_entity_tracker" },
+        { "item": "immersiveengineering:component_electronic_adv" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_entity_tracker" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_entity_tracker" },
+        { "item": "advancedperipherals:memory_card" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_entity_tracker" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_entity_tracker" },
+        { "item": "create:precision_mechanism" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_entity_tracker" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_entity_tracker" },
+        { "item": "deceasedcc:network_chip" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_entity_tracker" } ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [ { "item": "deceasedcc:wip_entity_tracker" } ],
+      "results": [ { "item": "deceasedcc:wip_entity_tracker" } ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "__comment": "Wall-mount camera variant — mount plate on south (+Z), lens on north (-Z). Opposite-face design makes wall rotation clean.",
+  "textures": {
+    "particle": "deceasedcc:block/camera_side",
+    "front":    "deceasedcc:block/camera_front",
+    "side":     "deceasedcc:block/camera_side",
+    "top":      "deceasedcc:block/camera_top",
+    "bottom":   "deceasedcc:block/camera_bottom"
+  },
+  "elements": [
+    {
+      "name": "wall_plate",
+      "from": [3, 3, 13],
+      "to":   [13, 13, 16],
+      "faces": {
+        "north": { "uv": [3, 3, 13, 13], "texture": "#side" },
+        "south": { "uv": [3, 3, 13, 13], "texture": "#bottom", "cullface": "south" },
+        "east":  { "uv": [0, 3, 3, 13], "texture": "#side" },
+        "west":  { "uv": [0, 3, 3, 13], "texture": "#side" },
+        "up":    { "uv": [3, 13, 13, 16], "texture": "#top" },
+        "down":  { "uv": [3, 13, 13, 16], "texture": "#bottom" }
+      }
+    },
+    {
+      "name": "neck",
+      "from": [6, 5, 11],
+      "to":   [10, 11, 13],
+      "faces": {
+        "north": { "uv": [6, 5, 10, 11], "texture": "#side" },
+        "south": { "uv": [6, 5, 10, 11], "texture": "#side" },
+        "east":  { "uv": [3, 5, 5, 11], "texture": "#side" },
+        "west":  { "uv": [3, 5, 5, 11], "texture": "#side" },
+        "up":    { "uv": [6, 11, 10, 13], "texture": "#top" },
+        "down":  { "uv": [6, 11, 10, 13], "texture": "#bottom" }
+      }
+    },
+    {
+      "name": "body",
+      "from": [4, 3, 3],
+      "to":   [12, 12, 11],
+      "faces": {
+        "north": { "uv": [4, 4, 12, 13], "texture": "#side" },
+        "south": { "uv": [4, 4, 12, 13], "texture": "#side" },
+        "east":  { "uv": [3, 4, 11, 13], "texture": "#side" },
+        "west":  { "uv": [3, 4, 11, 13], "texture": "#side" },
+        "up":    { "uv": [4, 3, 12, 11], "texture": "#top" },
+        "down":  { "uv": [4, 3, 12, 11], "texture": "#bottom" }
+      }
+    },
+    {
+      "name": "lens_barrel",
+      "from": [5, 5, 0],
+      "to":   [11, 11, 3],
+      "faces": {
+        "north": { "uv": [5, 5, 11, 11], "texture": "#front" },
+        "south": { "uv": [5, 5, 11, 11], "texture": "#side" },
+        "east":  { "uv": [0, 5, 3, 11], "texture": "#side" },
+        "west":  { "uv": [0, 5, 3, 11], "texture": "#side" },
+        "up":    { "uv": [5, 0, 11, 3], "texture": "#top" },
+        "down":  { "uv": [5, 0, 11, 3], "texture": "#bottom" }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [30, 225, 0],
+      "translation": [0, 0, 0],
+      "scale": [0.625, 0.625, 0.625]
+    },
+    "ground": { "rotation": [0, 0, 0], "translation": [0, 3, 0], "scale": [0.25, 0.25, 0.25] },
+    "fixed":  { "rotation": [0, 0, 0], "translation": [0, 0, 0], "scale": [0.5, 0.5, 0.5] },
+    "thirdperson_righthand": { "rotation": [75, 45, 0], "translation": [0, 2.5, 0], "scale": [0.375, 0.375, 0.375] },
+    "firstperson_righthand": { "rotation": [0, 45, 0], "translation": [0, 0, 0], "scale": [0.4, 0.4, 0.4] }
+  }
+}

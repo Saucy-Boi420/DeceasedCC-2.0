@@ -1,0 +1,85 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredient": {
+    "item": "create:brass_block"
+  },
+  "transitionalItem": {
+    "item": "deceasedcc:wip_turret_network_controller"
+  },
+  "loops": 4,
+  "results": [
+    {
+      "item": "deceasedcc:turret_network_controller",
+      "chance": 100.0
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_network_controller"
+        },
+        {
+          "item": "immersiveengineering:component_electronic"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_network_controller"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_network_controller"
+        },
+        {
+          "tag": "forge:plates/gold"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_network_controller"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_network_controller"
+        },
+        {
+          "item": "create:precision_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_network_controller"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_turret_network_controller"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_turret_network_controller"
+        }
+      ]
+    }
+  ]
+}

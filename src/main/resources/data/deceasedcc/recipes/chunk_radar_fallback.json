@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": { "type": "forge:mod_loaded", "modid": "create" }
+    }
+  ],
+  "pattern": [
+    "GEG",
+    "RDR",
+    "III"
+  ],
+  "key": {
+    "G": { "item": "minecraft:glass_pane" },
+    "E": { "item": "minecraft:ender_pearl" },
+    "R": { "item": "minecraft:redstone" },
+    "D": { "item": "minecraft:diamond" },
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": {
+    "item": "deceasedcc:chunk_radar"
+  }
+}

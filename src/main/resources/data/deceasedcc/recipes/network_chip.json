@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    { "type": "forge:mod_loaded", "modid": "create" },
+    { "type": "forge:mod_loaded", "modid": "immersiveengineering" }
+  ],
+  "pattern": [
+    " B ",
+    "EGE",
+    " R "
+  ],
+  "key": {
+    "B": { "tag": "forge:plates/brass" },
+    "E": { "item": "immersiveengineering:component_electronic" },
+    "G": { "item": "minecraft:gold_nugget" },
+    "R": { "item": "minecraft:redstone" }
+  },
+  "result": {
+    "item": "deceasedcc:network_chip",
+    "count": 4
+  }
+}

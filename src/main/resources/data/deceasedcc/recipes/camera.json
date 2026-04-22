@@ -1,0 +1,65 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    { "type": "forge:mod_loaded", "modid": "create" },
+    { "type": "forge:mod_loaded", "modid": "createaddition" },
+    { "type": "forge:mod_loaded", "modid": "immersiveengineering" }
+  ],
+  "ingredient": {
+    "item": "minecraft:spyglass"
+  },
+  "transitionalItem": {
+    "item": "deceasedcc:wip_camera"
+  },
+  "loops": 4,
+  "results": [
+    { "item": "deceasedcc:camera", "chance": 100.0 }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_camera" },
+        { "item": "create:copper_sheet" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_camera" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_camera" },
+        { "item": "immersiveengineering:component_electronic" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_camera" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_camera" },
+        { "item": "createaddition:copper_wire" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_camera" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_camera" },
+        { "item": "createaddition:electric_motor" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_camera" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_camera" },
+        { "item": "deceasedcc:network_chip" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_camera" } ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [ { "item": "deceasedcc:wip_camera" } ],
+      "results": [ { "item": "deceasedcc:wip_camera" } ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": { "type": "forge:mod_loaded", "modid": "create" }
+    }
+  ],
+  "pattern": [
+    "GLG",
+    "RDR",
+    "IPI"
+  ],
+  "key": {
+    "G": { "item": "minecraft:glass_pane" },
+    "L": { "item": "minecraft:redstone_lamp" },
+    "R": { "item": "minecraft:redstone" },
+    "D": { "item": "minecraft:diamond" },
+    "I": { "item": "minecraft:iron_ingot" },
+    "P": { "item": "minecraft:piston" }
+  },
+  "result": {
+    "item": "deceasedcc:entity_tracker"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredient": {
+    "item": "minecraft:redstone_block"
+  },
+  "transitionalItem": {
+    "item": "deceasedcc:wip_power_upgrade"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "item": "deceasedcc:upgrade_power_basic",
+      "chance": 100.0
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_power_upgrade"
+        },
+        {
+          "item": "minecraft:glowstone_dust"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_power_upgrade"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_power_upgrade"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_power_upgrade"
+        }
+      ]
+    }
+  ]
+}

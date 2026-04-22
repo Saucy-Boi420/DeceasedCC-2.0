@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "deceasedcc:chunk_radar",
+    "deceasedcc:entity_tracker",
+    "deceasedcc:basic_turret",
+    "deceasedcc:turret_mount",
+    "deceasedcc:turret_network_controller"
+  ]
+}

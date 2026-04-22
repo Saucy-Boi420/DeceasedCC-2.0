@@ -1,0 +1,101 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.turret_mount",
+        "texture_width": 32,
+        "texture_height": 32,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "base",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -6,
+                0,
+                -6
+              ],
+              "size": [
+                12,
+                4,
+                12
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "name": "yaw",
+          "parent": "base",
+          "pivot": [
+            0,
+            4,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -4,
+                4,
+                -4
+              ],
+              "size": [
+                8,
+                4,
+                8
+              ],
+              "uv": [
+                0,
+                16
+              ]
+            }
+          ]
+        },
+        {
+          "name": "pitch",
+          "parent": "yaw",
+          "pivot": [
+            0,
+            6,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                6,
+                -7
+              ],
+              "size": [
+                2,
+                2,
+                14
+              ],
+              "uv": [
+                16,
+                16
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

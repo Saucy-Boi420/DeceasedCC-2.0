@@ -1,0 +1,65 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    { "type": "forge:mod_loaded", "modid": "create" },
+    { "type": "forge:mod_loaded", "modid": "createaddition" },
+    { "type": "forge:mod_loaded", "modid": "immersiveengineering" }
+  ],
+  "ingredient": {
+    "item": "deceasedcc:network_chip"
+  },
+  "transitionalItem": {
+    "item": "deceasedcc:wip_advanced_network_controller"
+  },
+  "loops": 5,
+  "results": [
+    { "item": "deceasedcc:advanced_network_controller", "chance": 100.0 }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_advanced_network_controller" },
+        { "tag": "forge:plates/brass" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_advanced_network_controller" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_advanced_network_controller" },
+        { "item": "immersiveengineering:component_electronic_adv" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_advanced_network_controller" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_advanced_network_controller" },
+        { "item": "createaddition:copper_wire" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_advanced_network_controller" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_advanced_network_controller" },
+        { "item": "create:precision_mechanism" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_advanced_network_controller" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_advanced_network_controller" },
+        { "item": "immersiveengineering:capacitor_mv" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_advanced_network_controller" } ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [ { "item": "deceasedcc:wip_advanced_network_controller" } ],
+      "results": [ { "item": "deceasedcc:wip_advanced_network_controller" } ]
+    }
+  ]
+}

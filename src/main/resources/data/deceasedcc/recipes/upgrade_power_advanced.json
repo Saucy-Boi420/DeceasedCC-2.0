@@ -1,0 +1,46 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    { "type": "forge:mod_loaded", "modid": "create" },
+    { "type": "forge:mod_loaded", "modid": "immersiveengineering" }
+  ],
+  "ingredient": { "item": "deceasedcc:upgrade_power_basic" },
+  "transitionalItem": { "item": "deceasedcc:wip_power_upgrade" },
+  "loops": 3,
+  "results": [
+    { "item": "deceasedcc:upgrade_power_advanced", "chance": 100.0 }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_power_upgrade" },
+        { "item": "immersiveengineering:ingot_steel" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_power_upgrade" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_power_upgrade" },
+        { "item": "immersiveengineering:capacitor_hv" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_power_upgrade" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_power_upgrade" },
+        { "item": "create:precision_mechanism" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_power_upgrade" } ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        { "item": "deceasedcc:wip_power_upgrade" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_power_upgrade" } ]
+    }
+  ]
+}

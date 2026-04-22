@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": { "type": "forge:mod_loaded", "modid": "create" }
+    }
+  ],
+  "pattern": [
+    "RIR",
+    "IBI",
+    "RIR"
+  ],
+  "key": {
+    "R": { "item": "minecraft:redstone" },
+    "I": { "item": "minecraft:iron_ingot" },
+    "B": { "item": "minecraft:book" }
+  },
+  "result": {
+    "item": "deceasedcc:example_disk",
+    "count": 1
+  }
+}

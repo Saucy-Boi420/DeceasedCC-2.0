@@ -1,0 +1,29 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.turret_mount.idle": {
+      "loop": true,
+      "animation_length": 1,
+      "bones": {
+        "yaw": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "pitch": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

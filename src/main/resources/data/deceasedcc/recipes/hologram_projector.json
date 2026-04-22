@@ -1,0 +1,72 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    { "type": "forge:mod_loaded", "modid": "create" },
+    { "type": "forge:mod_loaded", "modid": "immersiveengineering" }
+  ],
+  "ingredient": {
+    "item": "create:display_link"
+  },
+  "transitionalItem": {
+    "item": "deceasedcc:wip_hologram_projector"
+  },
+  "loops": 5,
+  "results": [
+    { "item": "deceasedcc:hologram_projector", "chance": 100.0 }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_hologram_projector" },
+        { "tag": "forge:plates/brass" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_hologram_projector" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_hologram_projector" },
+        { "item": "minecraft:spyglass" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_hologram_projector" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_hologram_projector" },
+        { "item": "immersiveengineering:component_electronic_adv" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_hologram_projector" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_hologram_projector" },
+        { "item": "minecraft:glowstone_dust" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_hologram_projector" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_hologram_projector" },
+        { "item": "create:precision_mechanism" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_hologram_projector" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_hologram_projector" },
+        { "item": "deceasedcc:network_chip" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_hologram_projector" } ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [ { "item": "deceasedcc:wip_hologram_projector" } ],
+      "results": [ { "item": "deceasedcc:wip_hologram_projector" } ]
+    }
+  ]
+}

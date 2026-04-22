@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    { "type": "forge:mod_loaded", "modid": "create" }
+  ],
+  "pattern": [
+    " RC",
+    " NP",
+    " S "
+  ],
+  "key": {
+    "R": { "item": "minecraft:redstone_torch" },
+    "C": { "item": "minecraft:compass" },
+    "N": { "item": "deceasedcc:network_chip" },
+    "P": { "item": "create:precision_mechanism" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "item": "deceasedcc:linking_tool"
+  }
+}

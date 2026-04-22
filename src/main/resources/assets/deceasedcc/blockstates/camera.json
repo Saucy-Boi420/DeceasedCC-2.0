@@ -1,0 +1,19 @@
+{
+  "__comment": "12-variant blockstate. All three face orientations now use mount-only models (floor/ceiling/wall); the CameraBER draws the head on top with per-orientation pivot + model so yaw/pitch animates on every mount. HORIZONTAL_FACING is cosmetic for the mount geometry only (lens direction comes from BE yaw/pitch, world-space).",
+  "variants": {
+    "face=floor,facing=north":   { "model": "deceasedcc:block/camera_floor_mount" },
+    "face=floor,facing=south":   { "model": "deceasedcc:block/camera_floor_mount" },
+    "face=floor,facing=east":    { "model": "deceasedcc:block/camera_floor_mount" },
+    "face=floor,facing=west":    { "model": "deceasedcc:block/camera_floor_mount" },
+
+    "face=ceiling,facing=north": { "model": "deceasedcc:block/camera_ceiling_mount" },
+    "face=ceiling,facing=south": { "model": "deceasedcc:block/camera_ceiling_mount" },
+    "face=ceiling,facing=east":  { "model": "deceasedcc:block/camera_ceiling_mount" },
+    "face=ceiling,facing=west":  { "model": "deceasedcc:block/camera_ceiling_mount" },
+
+    "face=wall,facing=north":    { "model": "deceasedcc:block/camera_wall_mount" },
+    "face=wall,facing=south":    { "model": "deceasedcc:block/camera_wall_mount", "y": 180 },
+    "face=wall,facing=east":     { "model": "deceasedcc:block/camera_wall_mount", "y": 90 },
+    "face=wall,facing=west":     { "model": "deceasedcc:block/camera_wall_mount", "y": 270 }
+  }
+}

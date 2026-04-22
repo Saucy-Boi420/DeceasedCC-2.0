@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": { "type": "forge:mod_loaded", "modid": "create" }
+    }
+  ],
+  "pattern": [
+    " RC",
+    " II",
+    " S "
+  ],
+  "key": {
+    "R": { "item": "minecraft:redstone_torch" },
+    "C": { "item": "minecraft:compass" },
+    "I": { "item": "minecraft:iron_ingot" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "item": "deceasedcc:linking_tool"
+  }
+}

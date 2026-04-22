@@ -1,0 +1,236 @@
+// Phase 8.2 — add Mixin support. MixinGradle 0.7+ is only on the Sponge repo,
+// not the Gradle Plugin Portal, so we pull it via buildscript classpath + apply.
+buildscript {
+    repositories {
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+    }
+    dependencies {
+        classpath 'org.spongepowered:mixingradle:0.7.38'
+    }
+}
+
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+
+apply plugin: 'org.spongepowered.mixin'
+
+// Shipped jar name: DeceasedCraft-CC-<minecraft_version>-v<mod_version>.jar.
+// (The spec called for a colon between "DeceasedCraft" and "CC" but that's
+// not a valid character in Windows filenames, so we use a hyphen.)
+version = "v${mod_version}"
+group = mod_group_id
+
+base {
+    archivesName = "DeceasedCraft-CC-${minecraft_version}"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+
+minecraft {
+    mappings channel: mapping_channel, version: mapping_version
+    copyIdeResources = true
+
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        client {
+            property 'forge.enabledGameTestNamespaces', mod_id
+        }
+
+        server {
+            property 'forge.enabledGameTestNamespaces', mod_id
+            args '--nogui'
+        }
+
+        gameTestServer {
+            property 'forge.enabledGameTestNamespaces', mod_id
+        }
+
+        data {
+            workingDirectory project.file('run-data')
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+// Phase 8.2 — Mixin config. Refmap bridges source-level SRG mappings to
+// runtime Mojang-mapped names so @Inject/@Redirect/@Shadow resolve correctly
+// in both dev and production.
+mixin {
+    add sourceSets.main, 'mixins.deceasedcc.refmap.json'
+    config 'mixins.deceasedcc.json'
+}
+
+repositories {
+    maven {
+        name = 'Kotlin for Forge'
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
+    }
+    maven {
+        name = 'CC: Tweaked'
+        url = 'https://squiddev.cc/maven/'
+    }
+    maven {
+        name = 'TheIllusiveC4 (Curios)'
+        url = 'https://maven.theillusivec4.top/'
+    }
+    maven {
+        name = 'GeckoLib'
+        url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+    }
+    maven {
+        name = 'CurseMaven'
+        url = 'https://cursemaven.com'
+        content { includeGroup 'curse.maven' }
+    }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // --- HARD DEPENDENCIES (compile-time API required) ---
+
+    // CC: Tweaked — the whole point of the mod. API-only jar for compile; the
+    // full mod must be present at runtime. We never bundle it.
+    // 1.109+ split: forge-api has Forge-specific hooks; core-api has the Lua
+    // and IPeripheral types that the rest of the mod imports.
+    compileOnly fg.deobf("cc.tweaked:cc-tweaked-${minecraft_version}-core-api:${cctweaked_version}")
+    compileOnly fg.deobf("cc.tweaked:cc-tweaked-${minecraft_version}-forge-api:${cctweaked_version}")
+    runtimeOnly fg.deobf("cc.tweaked:cc-tweaked-${minecraft_version}-forge:${cctweaked_version}")
+
+    // Phase 8.2 — Mixin annotation processor. Reads @Mixin/@Inject/@Redirect/
+    // @Shadow and emits the refmap + transform metadata that Forge applies at
+    // runtime. Version 0.8.5 is the stable line for MC 1.20.1 / Forge 47.
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    // --- SOFT DEPENDENCIES (integrations go through ModList + reflection) ---
+    // We deliberately do NOT compile against Create / Refined Storage / TACZ /
+    // Advanced Peripherals. Their integration classes use ModList.get()
+    // presence checks and reflective access, per the spec's rule that "every
+    // integration must be wrapped in a mod presence check at both registration
+    // time and call time." This keeps the build robust against version churn
+    // in those mods and avoids pinning to specific CF file IDs.
+    //
+    // GeckoLib is used for the turret animation. The animation is guarded by
+    // a ModList check; if GeckoLib is absent, turrets still function but do
+    // not animate their rotation. When you want to enable compile-time
+    // GeckoLib API access, uncomment:
+    // compileOnly fg.deobf("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
+    // runtimeOnly fg.deobf("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+            forge_version: forge_version, forge_version_range: forge_version_range,
+            loader_version_range: loader_version_range,
+            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: mod_description,
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties + [project: project]
+    }
+}
+
+tasks.named('jar', Jar).configure {
+    manifest {
+        attributes([
+                'Specification-Title'     : mod_id,
+                'Specification-Vendor'    : mod_authors,
+                'Specification-Version'   : '1',
+                'Implementation-Title'    : project.name,
+                'Implementation-Version'  : project.jar.archiveVersion,
+                'Implementation-Vendor'   : mod_authors,
+                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+
+    finalizedBy 'reobfJar'
+}
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+// --- Auto-copy the built jar into the user's CurseForge modpack ----------
+// After every successful `gradlew build`, drop the reobfuscated jar into
+// the DeceasedCraft modpack's mods folder and delete any older deceasedcc
+// jars sitting next to it. Saves the manual copy-paste on every iteration.
+// If the target folder doesn't exist (e.g. CI or another machine), we skip
+// cleanly with a console warning — never fail the build.
+ext.modsFolder = file("${System.getProperty('user.home')}\\curseforge\\minecraft\\Instances\\DeceasedCraft - Urban Zombie Apocalypse\\mods")
+tasks.register('copyToMods') {
+    group = 'distribution'
+    description = 'Copies the built jar into the DeceasedCraft modpack mods folder.'
+    dependsOn 'build'
+    doLast {
+        if (!modsFolder.exists()) {
+            logger.warn("copyToMods: ${modsFolder} not found — skipping")
+            return
+        }
+        // Find the freshly-built jar (reobfuscated, skipping any -sources).
+        def archivePrefix = base.archivesName.get()
+        def libs = file("${buildDir}/libs")
+        def built = libs.listFiles()?.findAll {
+            it.name.startsWith("${archivePrefix}-") && it.name.endsWith(".jar") && !it.name.endsWith("-sources.jar")
+        }?.sort { a, b -> b.lastModified() <=> a.lastModified() }
+        if (!built || built.isEmpty()) {
+            logger.warn("copyToMods: no jar in ${libs}")
+            return
+        }
+        def jar = built[0]
+
+        // Remove previous mod jars from the mods folder (old naming + new naming).
+        modsFolder.listFiles()?.each { existing ->
+            boolean oldName = existing.name.startsWith("${mod_id}-") && existing.name.endsWith(".jar")
+            boolean newName = existing.name.startsWith("${archivePrefix}-") && existing.name.endsWith(".jar")
+            if (oldName || newName) {
+                logger.lifecycle("copyToMods: removing old ${existing.name}")
+                existing.delete()
+            }
+        }
+
+        def dest = new File(modsFolder, jar.name)
+        dest.bytes = jar.bytes
+        logger.lifecycle("copyToMods: wrote ${dest}")
+    }
+}
+
+// Run the copy automatically as part of `build` so the workflow is just
+// `gradlew build` and the modpack is updated.
+tasks.named('build').configure {
+    finalizedBy 'copyToMods'
+}

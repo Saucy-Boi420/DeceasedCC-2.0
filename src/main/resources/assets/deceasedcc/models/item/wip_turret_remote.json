@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "deceasedcc:item/wip_turret_remote"
+  }
+}

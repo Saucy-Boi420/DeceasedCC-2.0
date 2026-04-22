@@ -1,0 +1,72 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    { "type": "forge:mod_loaded", "modid": "create" },
+    { "type": "forge:mod_loaded", "modid": "immersiveengineering" }
+  ],
+  "ingredient": {
+    "item": "deceasedcc:camera"
+  },
+  "transitionalItem": {
+    "item": "deceasedcc:wip_chunk_radar"
+  },
+  "loops": 5,
+  "results": [
+    { "item": "deceasedcc:chunk_radar", "chance": 100.0 }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_chunk_radar" },
+        { "item": "minecraft:spyglass" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_chunk_radar" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_chunk_radar" },
+        { "tag": "forge:plates/brass" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_chunk_radar" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_chunk_radar" },
+        { "item": "immersiveengineering:component_electronic" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_chunk_radar" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_chunk_radar" },
+        { "item": "create:precision_mechanism" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_chunk_radar" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_chunk_radar" },
+        { "item": "minecraft:ender_pearl" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_chunk_radar" } ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        { "item": "deceasedcc:wip_chunk_radar" },
+        { "item": "deceasedcc:network_chip" }
+      ],
+      "results": [ { "item": "deceasedcc:wip_chunk_radar" } ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [ { "item": "deceasedcc:wip_chunk_radar" } ],
+      "results": [ { "item": "deceasedcc:wip_chunk_radar" } ]
+    }
+  ]
+}

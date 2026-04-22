@@ -1,0 +1,44 @@
+{
+  "__comment": "WALL-variant mount only (plate + arm). Extracted from camera_wall (body + lens removed — head drawn by CameraBER so it swivels with BE yaw/pitch). Default orientation: plate on south face (+Z), arm extends -Z into room, head pivot at (0.5, 8/16, 11/16). Blockstate rotates the whole mount via y=90/180/270 for the other horizontal facings.",
+  "textures": {
+    "particle": "deceasedcc:block/camera_side",
+    "side":     "deceasedcc:block/camera_side",
+    "top":      "deceasedcc:block/camera_top",
+    "bottom":   "deceasedcc:block/camera_bottom"
+  },
+  "elements": [
+    {
+      "name": "wall_plate",
+      "from": [3, 3, 13],
+      "to":   [13, 13, 16],
+      "faces": {
+        "north": { "uv": [3, 3, 13, 13], "texture": "#side" },
+        "south": { "uv": [3, 3, 13, 13], "texture": "#bottom", "cullface": "south" },
+        "east":  { "uv": [0, 3, 3, 13], "texture": "#side" },
+        "west":  { "uv": [0, 3, 3, 13], "texture": "#side" },
+        "up":    { "uv": [3, 13, 13, 16], "texture": "#top" },
+        "down":  { "uv": [3, 13, 13, 16], "texture": "#bottom" }
+      }
+    },
+    {
+      "name": "arm",
+      "from": [6, 5, 11],
+      "to":   [10, 11, 13],
+      "faces": {
+        "north": { "uv": [6, 5, 10, 11], "texture": "#side" },
+        "south": { "uv": [6, 5, 10, 11], "texture": "#side" },
+        "east":  { "uv": [3, 5, 5, 11], "texture": "#side" },
+        "west":  { "uv": [3, 5, 5, 11], "texture": "#side" },
+        "up":    { "uv": [6, 11, 10, 13], "texture": "#top" },
+        "down":  { "uv": [6, 11, 10, 13], "texture": "#bottom" }
+      }
+    }
+  ],
+  "display": {
+    "gui":    { "rotation": [30, 225, 0], "translation": [0, 0, 0], "scale": [0.625, 0.625, 0.625] },
+    "ground": { "rotation": [0, 0, 0], "translation": [0, 3, 0], "scale": [0.25, 0.25, 0.25] },
+    "fixed":  { "rotation": [0, 0, 0], "translation": [0, 0, 0], "scale": [0.5, 0.5, 0.5] },
+    "thirdperson_righthand": { "rotation": [75, 45, 0], "translation": [0, 2.5, 0], "scale": [0.375, 0.375, 0.375] },
+    "firstperson_righthand": { "rotation": [0, 45, 0], "translation": [0, 0, 0], "scale": [0.4, 0.4, 0.4] }
+  }
+}

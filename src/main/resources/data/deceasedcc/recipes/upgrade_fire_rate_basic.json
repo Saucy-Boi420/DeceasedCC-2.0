@@ -1,0 +1,53 @@
+{
+  "type": "create:sequenced_assembly",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredient": {
+    "item": "minecraft:redstone_block"
+  },
+  "transitionalItem": {
+    "item": "deceasedcc:wip_fire_rate_upgrade"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "item": "deceasedcc:upgrade_fire_rate_basic",
+      "chance": 100.0
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_fire_rate_upgrade"
+        },
+        {
+          "item": "minecraft:blaze_powder"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_fire_rate_upgrade"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "deceasedcc:wip_fire_rate_upgrade"
+        }
+      ],
+      "results": [
+        {
+          "item": "deceasedcc:wip_fire_rate_upgrade"
+        }
+      ]
+    }
+  ]
+}
